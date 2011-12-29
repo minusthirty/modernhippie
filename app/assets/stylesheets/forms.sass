@@ -1,0 +1,72 @@
+form
+  margin: 0 20px
+
+  h2
+    margin: 60px 0 10px 0
+    border-bottom: 2px solid #222
+
+  overflow: hidden
+  span.error
+    clear:   left
+    color:   red
+    display: block
+    font-size: 12px
+
+  #post_delete_image,
+  #post_delete_document
+    float: left
+    
+  div.attachment
+    float: left
+    margin-right: 40px
+    width: 200px
+    
+  div.input
+    margin: 10px 5px
+  label
+    display: block
+    font-size: 16px
+    margin: 20px 0 5px 0
+    color: #333
+  input.string,
+  input.numeric,
+  textarea
+    border: solid 1px #bbb
+    background: white url('/images/input_bg.gif') repeat-x top
+    padding: 4px 6px
+    font-size: 16px
+    &#post_title
+      width: 600px
+      font-size: 24px
+    &#post_meta_description
+      width: 600px
+    &#post_body
+      width: 587px
+      height: 200px
+      line-height: 1.4
+      padding: 8px 12px
+      resize: none
+
+  .attachment
+    overflow: hidden
+    margin: 0
+    div
+      float: left
+      margin: 0
+      input
+        width: 90%
+        font-size: 18px
+        &.string
+          width: 280px
+        &.file
+          font-size: 12px
+          float: left
+          width: 80px
+        
+        
+form.button_to
+  float: right
+  display: inline
+  
+  
+  

@@ -1,0 +1,58 @@
+table#posts
+  width: 99%
+  font-size: 0.9em
+  margin: 20px 0
+  border-collapse: collapse
+  tr
+    &.new
+      color: green
+    &.featured
+      color: orange
+    &.incomplete
+      color: red
+
+    &:nth-child(even) 
+      background: #fafafa
+  th
+    text-transform: uppercase
+    font-size: 12px
+    font-weight: normal
+    color: #aaa
+    padding: 5px 10px
+    text-align: center
+    &.date
+      text-align: right
+    &.name,
+    &.site,
+    &.url,
+    &.email
+      text-align: left
+  td
+    padding: 6px 10px
+    border: 1px solid #ededed
+    &.image
+      width: 20px
+    &.number
+      font-size: 1.2em
+    &.number,
+    &.bool
+      text-align: center
+    &.date
+      text-align: right
+      font-size: 0.8em
+
+    &.url
+      font-size: 0.9em
+      
+tr.attachment
+  td
+    padding: 5px 10px
+    img
+      width: 30px
+      height: 30px
+  td.image
+    width: 160px
+  td.remove
+    width: 60px
+    
+    

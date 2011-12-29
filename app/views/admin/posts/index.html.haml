@@ -1,0 +1,18 @@
+= link_to '+ Post', [:new, :admin, :post], :class => 'add-button'
+%h1= pluralize(@posts.size, 'Post')
+
+- unless @posts.empty?
+  %table#posts
+    %tr
+      %th
+      %th.name Name
+      
+      %th.name Category
+      %th.number Attachments
+      
+      %th.date Created
+      %th.date Updated
+      %th.date Published
+      %th
+    =render @posts
+

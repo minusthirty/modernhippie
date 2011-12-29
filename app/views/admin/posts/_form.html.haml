@@ -1,0 +1,20 @@
+= simple_form_for [:admin, @post], :html => { :multipart => true } do |f|
+
+  = link_to 'Cancel', [:admin, :posts]
+  = f.submit 'Save', :class => 'save'
+  
+  %h2 Details
+  
+  = f.association :category
+  = f.input :draft
+  = f.input :title, :placeholder => 'short post name'
+  = f.input :body, :placeholder => 'body... they long part you write'
+  = f.input :meta_description, :label => 'Search Description', :placeholder => 'will appear in google search results'
+
+
+  %h2 Attachments
+    
+  = link_to_add_fields "Add an Image", f, :attachments
+  %table#attachments
+    = f.simple_fields_for :attachments do |builder|
+      = render 'attachment_fields', :f => builder
