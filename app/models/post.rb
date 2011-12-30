@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   
-  attr_accessor :delete_attachment
+  attr_accessor :delete_image
   
   before_validation :delete_attachments
   before_save       :update_published_at
@@ -18,11 +18,11 @@ class Post < ActiveRecord::Base
   validates :title,     :presence => true, :length => { :within => 3..40 }, :uniqueness => true
   validates :body,      :presence => true, :length => { :within => 1..1000 }
   
-  def cover(size=:small)
-    return "" if attachments.empty?
-    return "" unless attachments.first.image
-    attachments.first.image.url(size)
-  end
+  has_attached_file :image,
+    {:styles => { :small  => ["170x83#", :jpg],
+                  :medium => ["340x165#", :jpg],
+                  :large  => ["700x340#", :jpg]}
+    }.merge(PAPERCLIP_STORAGE_OPTIONS)
   
   private
     def update_published_at
@@ -30,6 +30,6 @@ class Post < ActiveRecord::Base
     end
   
     def delete_attachments
-      self.attachments.clear if delete_attachment == '1'
+      self.image.clear if delete_image == '1'
     end
 end

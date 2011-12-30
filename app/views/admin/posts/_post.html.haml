@@ -1,5 +1,5 @@
 %tr.post
-  %td.image= image_tag(post.cover)
+  %td.image= image_tag(post.image.url(:small))
   %td= link_to post.title, [:edit, :admin, post]
 
   %td=post.category.try(:name)
