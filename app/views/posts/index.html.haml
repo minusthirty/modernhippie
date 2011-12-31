@@ -1,4 +1,13 @@
-%h1 Posts
+%h1 Modern Hippie
 
-%ul.posts
-  = render @posts
+
+%ul#filters
+  - @categories.each do |c|
+    %li
+      = link_to c.name, "#", "data-filter" => ".#{c.name}"
+      
+%div#container
+  - @posts.each do |post|
+    %div.item{:class=>post.category.name}
+      %h3= post.title
+      = image_tag post.image.url(:medium)

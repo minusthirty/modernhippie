@@ -8,4 +8,5 @@ Modernhippie::Application.routes.draw do
     resources :posts
   end
   
+  root :to => 'posts#index'
 end

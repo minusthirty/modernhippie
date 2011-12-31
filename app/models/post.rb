@@ -19,9 +19,9 @@ class Post < ActiveRecord::Base
   validates :body,      :presence => true, :length => { :within => 1..1000 }
   
   has_attached_file :image,
-    {:styles => { :small  => ["170x83#", :jpg],
-                  :medium => ["340x165#", :jpg],
-                  :large  => ["700x340#", :jpg]}
+    {:styles => { :small    => ["100x48#", :jpg],
+                  :medium   => ["340x165#", :jpg],
+                  :large    => ["700x340#", :jpg]}
     }.merge(PAPERCLIP_STORAGE_OPTIONS)
   
   private
