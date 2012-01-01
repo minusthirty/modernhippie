@@ -13,7 +13,10 @@ gem "pg", "0.11.0"
 gem "haml-rails"
 gem "sass-rails"
 gem "simple_form"
+
+# images
 gem "paperclip"
+gem "exifr"
 
 
 # Gems used only for assets and not required

@@ -1,6 +1,4 @@
 form
-  margin: 0 20px
-
   h2
     margin: 60px 0 10px 0
     border-bottom: 2px solid #222
@@ -16,7 +14,7 @@ form
   #post_delete_document
     float: left
     
-  div.attachment
+  div.image
     float: left
     margin-right: 40px
     width: 200px
@@ -28,6 +26,8 @@ form
     font-size: 16px
     margin: 20px 0 5px 0
     color: #333
+    &.boolean
+      display: inline
   input.string,
   input.numeric,
   textarea
@@ -47,7 +47,11 @@ form
       padding: 8px 12px
       resize: none
 
-  .attachment
+  .cover-image
+    float: left
+    margin-right: 30px
+
+  .image
     overflow: hidden
     margin: 0
     div

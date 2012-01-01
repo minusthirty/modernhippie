@@ -1,7 +1,0 @@
-%tr.attachment
-  %td= image_tag(f.object.image.url(:small))
-  %td= f.input :image, :as => :file, :label => false
-  %td= f.input :description, :placeholder => 'Description', :label => false
-  %td.remove
-    = f.hidden_field(:_destroy)
-    = link_to_function("Remove", "remove_fields(this)")

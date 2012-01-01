@@ -7,21 +7,21 @@ class Admin::PostsController < Admin::AdminController
   end
   
   def edit
-    3.times { @post.attachments.build } if @post.attachments.size < 3
+    3.times { @post.images.build } if @post.images.size < 3
   end
   
   def update
     if @post.update_attributes(params[:post])
       redirect_to [:admin, :posts], :notice => "Updated post"
     else
-      3.times { @post.attachments.build } if @post.attachments.size < 3  
+      3.times { @post.images.build } if @post.images.size < 3  
       render :action => 'edit'
     end
   end
   
   def new
     @post = Post.new
-    3.times { @post.attachments.build }
+    3.times { @post.images.build }
   end
   
   def create
@@ -30,7 +30,7 @@ class Admin::PostsController < Admin::AdminController
     if @post.valid?
       redirect_to [:admin, :posts], :notice => "Created new post"
     else
-      3.times { @post.attachments.build } if @post.attachments.size < 3
+      3.times { @post.images.build } if @post.images.size < 3
       render :action => 'new'
     end
   end

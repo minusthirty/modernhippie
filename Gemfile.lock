@@ -43,6 +43,7 @@ GEM
     eventmachine (0.12.10)
     execjs (1.2.13)
       multi_json (~> 1.0)
+    exifr (1.1.1)
     haml (3.1.4)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
@@ -138,6 +139,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-s3
+  exifr
   haml-rails
   heroku
   paperclip

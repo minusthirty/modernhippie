@@ -4,15 +4,14 @@ table#posts
   margin: 20px 0
   border-collapse: collapse
   tr
-    &.new
-      color: green
-    &.featured
-      color: orange
-    &.incomplete
-      color: red
-
     &:nth-child(even) 
       background: #fafafa
+    span
+      text-transform: uppercase
+      font-size: 9px
+      color: white
+      background-color: black
+      padding: 2px 3px
   th
     text-transform: uppercase
     font-size: 12px
@@ -44,7 +43,7 @@ table#posts
     &.url
       font-size: 0.9em
    
-table#attachments
+table#images
   tr
     td
       padding: 5px 10px

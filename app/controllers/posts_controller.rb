@@ -9,6 +9,6 @@ class PostsController < ApplicationController
   
   # post details
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:id], :include => :images)
   end
 end

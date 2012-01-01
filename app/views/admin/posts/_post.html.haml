@@ -1,12 +1,15 @@
 %tr.post
-  %td.image= image_tag(post.image.url(:small))
-  %td= post.title
+  %td.image
+    = image_tag(post.cover_image.url(:small))
+  %td
+    - if post.published_at.nil?
+      %span Draft
+    = post.title
+
 
   %td=post.category.try(:name)
-  %td.number=post.attachments_count
+  %td.number=post.images_count
   
-  %td.date="#{time_ago_in_words post.created_at} ago"
   %td.date="#{time_ago_in_words post.updated_at} ago"
-  %td.date= post.published_at
   
   %td= link_to 'Edit', [:edit, :admin, post]
