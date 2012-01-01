@@ -24,6 +24,6 @@
   %br
   %h2 Gallery Images
   = link_to_add_fields "Add an Image", f, :images
-  %table#images
+  %ul#images
     = f.simple_fields_for :images do |builder|
       = render 'image_fields', :f => builder

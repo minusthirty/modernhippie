@@ -11,25 +11,24 @@ class Image < ActiveRecord::Base
     :unless => Proc.new {|m| m[:photo].nil?}
   
   has_attached_file :photo,
-    {:styles => { :square       => ["330x330#", :jpg],
+    {:styles => { :admin_portrait  => ["82x110#", :jpg],
+                  :admin_landscape => ["165x110#", :jpg],
+                  
                   :portrait     => ["245x330#", :jpg],
                   :landscape    => ["500x330#", :jpg]}
-                  
                   
     }.merge(PAPERCLIP_STORAGE_OPTIONS)
   before_photo_post_process :store_exif
   
-  
-  def oriented_photo_url(admin=false)
-    photo_format = if admin
-      "admin_#{self.orientation}".to_sym
-    else
-      self.orientation.to_sym
-    end
-    self.photo.url(photo_format)
+  # return image url for orientation
+  # limit to either landscape or portrait
+  def oriented_photo_url(prefix=nil)
+    photo_style = self.orientation == 'landscape' ? 'landscape' : 'portrait'
+    photo_style = "#{prefix.to_s}_#{photo_style}" if prefix
+    self.photo.url(photo_style.to_sym)
   end
   
-  private
+  private  
   def store_exif
     img_file = self.photo.to_file
     return unless img_file
