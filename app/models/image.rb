@@ -5,11 +5,17 @@ class Image < ActiveRecord::Base
   validates_attachment_content_type :photo, 
     :content_type => ['image/jpeg', 'image/pjpeg'], 
     :message => "has to be in jpeg format"
+    
+  validates_attachment_size :photo, 
+    :less_than => 2.megabytes, 
+    :unless => Proc.new {|m| m[:photo].nil?}
   
   has_attached_file :photo,
     {:styles => { :square       => ["330x330#", :jpg],
                   :portrait     => ["245x330#", :jpg],
                   :landscape    => ["500x330#", :jpg]}
+                  
+                  
     }.merge(PAPERCLIP_STORAGE_OPTIONS)
   before_photo_post_process :store_exif
   

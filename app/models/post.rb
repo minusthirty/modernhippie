@@ -18,6 +18,14 @@ class Post < ActiveRecord::Base
   validates :title,     :presence => true, :length => { :within => 3..40 }, :uniqueness => true
   validates :body,      :presence => true, :length => { :within => 1..1000 }
   
+  validates_attachment_content_type :cover_image,
+    :content_type => ['image/jpeg', 'image/pjpeg'],
+    :message => "has to be in jpeg format"
+    
+  validates_attachment_size :cover_image, 
+    :less_than => 2.megabytes, 
+    :unless => Proc.new {|m| m[:cover_image].nil?}
+  
   # square cover image
   has_attached_file :cover_image,
     {:styles => { :small    => ["50x50#", :jpg],
