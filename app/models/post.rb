@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
   before_save       :update_published_at
   
   belongs_to :category
-  has_many :images, :dependent => :destroy
+  has_many :images, :dependent => :destroy, :order => 'created_at'
   
   accepts_nested_attributes_for :images, 
     :reject_if => lambda { |p| p[:photo].blank? },
