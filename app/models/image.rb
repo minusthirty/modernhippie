@@ -11,7 +11,7 @@ class Image < ActiveRecord::Base
     :unless => Proc.new {|m| m[:photo].nil?}
   
   has_attached_file :photo,
-    {:styles => { :admin_vertical   => ["123x165#", :jpg],
+    {:styles => { :admin_vertical   => ["122x165#", :jpg],
                   :admin_horizontal => ["250x165#", :jpg],
                   :vertical         => ["245x330#", :jpg],
                   :horizontal       => ["500x330#", :jpg]}
