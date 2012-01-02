@@ -2,10 +2,8 @@
 
 %h1= @post.title
 %p= @post.body
-= image_tag @post.cover_image.url(:large)
 
 %h2 Gallery
-%ul#images
-  = render @post.images
+= render @post.images
 
 
