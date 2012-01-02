@@ -1,10 +1,9 @@
-= link_to 'back', posts_url
+%div.title
+  %h1= @post.title
 
-%h1= @post.title
-%p= @post.body
+%div.body
+  %p= @post.body
 
-%h2 Gallery
-%div#gallery
-  = render @post.images
-
-
+%div.gallery
+  - @post.images.each do |image|
+    = image_tag image.oriented_photo_url
