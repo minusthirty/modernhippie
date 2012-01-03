@@ -33,8 +33,8 @@ class Post < ActiveRecord::Base
   # square cover image
   has_attached_file :cover_image,
     {:styles => { :small    => ["50x50#", :jpg],
-                  :medium   => ["150x150#", :jpg],
-                  :large    => ["300x300#", :jpg]}
+                  :medium   => ["100x100#", :jpg],
+                  :large    => ["245x245#", :jpg]}
     }.merge(PAPERCLIP_STORAGE_OPTIONS)
   
   def next
