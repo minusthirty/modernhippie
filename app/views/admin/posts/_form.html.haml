@@ -19,11 +19,14 @@
     = image_tag(@post.cover_image.url(:medium), :class => 'cover-image')
     = f.input :cover_image, :as => :file, :label => 'Change Cover'  
     = f.input :delete_cover_image, :as => :boolean, :label => 'Remove'
-
-  
+    
   %br
   %h2 Gallery Images
   = link_to_add_fields "Add an Image", f, :images
   %ul#images
     = f.simple_fields_for :images do |builder|
       = render 'image_fields', :f => builder
+      
+  %div.controls    
+    = link_to 'Cancel', [:admin, :posts]
+    = f.submit 'Save', :class => 'save'      
