@@ -31,10 +31,11 @@ class Post < ActiveRecord::Base
     :unless => Proc.new {|m| m[:cover_image].nil?}
   
   # square cover image
+  # double width square for rollover effect
   has_attached_file :cover_image,
-    {:styles => { :small    => ["50x50#", :jpg],
-                  :medium   => ["100x100#", :jpg],
-                  :large    => ["245x245#", :jpg]}
+    {:styles => { :small    => ["100x50#", :jpg],
+                  :medium   => ["200x100#", :jpg],
+                  :large    => ["490x245#", :jpg]}
     }.merge(PAPERCLIP_STORAGE_OPTIONS)
   
   def next

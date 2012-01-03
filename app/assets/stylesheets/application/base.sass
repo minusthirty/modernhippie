@@ -4,6 +4,7 @@ $border_color: #dadbd4
 *
   margin: 0
   padding: 0
+  border: none
 
 body
   width: 765px
@@ -12,13 +13,15 @@ body
   
 ul#posts
   overflow: hidden
-  .post
+  li.post
+    overflow: hidden
     float: left
     margin: 5px
     position: relative
-    overflow: hidden
     width: 245px
     height: 245px
+    img
+      position: absolute
     h3
       position: absolute
       top: 5px
@@ -76,9 +79,6 @@ ul#posts
   border-top: 1px solid $border_color
   padding: 20px 0
   margin: 40px 5px 0 5px
-  
-#gallery
-  width: 840px
   
 .image
   width: 220px

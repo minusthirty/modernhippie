@@ -8,3 +8,12 @@ function add_fields(link, association, content) {
   var regexp = new RegExp("new_" + association, "g")
   $("ul#images").append(content.replace(regexp, new_id));
 }
+
+// home page cover image rollover
+$(function(){
+  $("#posts li a").hover(function(){
+    $("img", this).stop().animate({left:"-245px"},{queue:false,duration:200});
+  }, function() {
+    $("img", this).stop().animate({left:"0px"},{queue:false,duration:200});
+  });
+});
