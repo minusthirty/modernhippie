@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120103063326) do
+ActiveRecord::Schema.define(:version => 20120103065515) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(:version => 20120103063326) do
     t.integer  "category_id"
     t.string   "title"
     t.text     "body"
-    t.string   "meta_description"
     t.boolean  "draft",                    :default => true
     t.integer  "images_count",             :default => 0
     t.string   "cover_image_file_name"

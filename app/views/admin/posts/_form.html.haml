@@ -5,13 +5,11 @@
   
   %h2 Details
   = f.input :draft
-  = f.input :title, :placeholder => 'short post name'
-  = f.input :body, :placeholder => 'body... they long part you write'
-  = f.input :meta_description, :label => 'Search Description', :placeholder => 'will appear in google search results'
+  = f.input :title
+  = f.input :body
   = f.association :category  
   %br
-
-
+  
   %h2 Cover Image
   - if @post.cover_image_file_name.blank?
     = f.input :cover_image, :as => :file, :label => 'Add Cover Image'
