@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   
   # home
   def index
-    @posts = Post.all
+    @posts = Post.order('created_at')
     @categories = Category.all
   end
   
