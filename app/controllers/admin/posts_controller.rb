@@ -3,7 +3,7 @@ class Admin::PostsController < Admin::AdminController
   before_filter :load_resource, :only => [:edit, :update, :destroy]
   
   def index
-    @posts = Post.order(:published_at)
+    @posts = Post.unscoped.order(:published_at)
   end
   
   def edit
@@ -43,6 +43,6 @@ class Admin::PostsController < Admin::AdminController
   
   private
   def load_resource
-    @post = Post.find(params[:id])
+    @post = Post.unscoped.find(params[:id])
   end
 end

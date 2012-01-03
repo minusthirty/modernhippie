@@ -24,7 +24,6 @@ a
   &:hover
     color: $nav_font_color_over
     
-    
 p
   font-family: Times
   font-size: 16px
@@ -36,12 +35,26 @@ p
   a
     font-size: 20px
     
-
 #content
   h1
     font-family: ArvilRegular
     font-size: 70px
     color: $title_font_color
+  .nav
+    a
+      font-family: ArvilRegular
+      font-size: 50px
+      &.next
+        float: right
+        padding-right: 20px
+        background: transparent image-url('arrow-next.png') center right no-repeat
+        
+      &.previous
+        float: left
+        padding-left: 20px
+        background: transparent image-url('arrow-previous.png') center left no-repeat
     
-    
+#footer
+  p
+    color: $title_font_color
     

@@ -1,4 +1,8 @@
 class Post < ActiveRecord::Base
+
+  # only show published posts
+  # use unscoped for admin index
+  default_scope where('published_at is not null')
   
   attr_accessor :delete_cover_image
   
@@ -11,7 +15,7 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :images, 
     :reject_if => lambda { |p| p[:photo].blank? },
     :allow_destroy => true
-    
+  
   validates_associated :images
   
   validates :category,  :presence => true
@@ -32,6 +36,14 @@ class Post < ActiveRecord::Base
                   :medium   => ["150x150#", :jpg],
                   :large    => ["300x300#", :jpg]}
     }.merge(PAPERCLIP_STORAGE_OPTIONS)
+  
+  def next
+    self.class.where("created_at > ?", created_at).first
+  end
+
+  def prev
+    self.class.where("created_at < ?", created_at).first
+  end
   
   private
     def update_published_at

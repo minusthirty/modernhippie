@@ -7,3 +7,7 @@
 %div.gallery
   - @post.images.each do |image|
     = image_tag image.oriented_photo_url
+    
+%div.nav
+  = link_to('This way', @prev_post, :class => 'previous') if @prev_post
+  = link_to('That way', @next_post, :class => 'next') if @next_post
