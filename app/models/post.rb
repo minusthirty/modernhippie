@@ -8,6 +8,7 @@ class Post < ActiveRecord::Base
   
   before_validation :update_cover_image
   before_save       :update_published_at
+  before_save       :update_body_html
   
   belongs_to :category
   has_many :images, :dependent => :destroy, :order => 'created_at'
@@ -47,6 +48,10 @@ class Post < ActiveRecord::Base
   end
   
   private
+    def update_body_html
+      self.body_html = RedCloth.new(self.body).to_html
+    end
+  
     def update_published_at
       self.published_at = draft ? nil : Time.now
     end

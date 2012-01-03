@@ -13,6 +13,7 @@ gem "pg", "0.11.0"
 gem "haml-rails"
 gem "sass-rails"
 gem "simple_form"
+gem "RedCloth"
 
 # images
 gem "paperclip"

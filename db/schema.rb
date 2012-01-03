@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111010182843) do
+ActiveRecord::Schema.define(:version => 20120103063326) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20111010182843) do
     t.datetime "published_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "body_html"
   end
 
 end
