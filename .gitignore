@@ -1,5 +1,4 @@
 .DS_Store
-vendor
 .bundle
 db/*.sqlite3
 log/*.log
@@ -9,3 +8,4 @@ public/system
 config/heroku_env.rb
 public/assets/
 paperclip
+vendor/bundle
