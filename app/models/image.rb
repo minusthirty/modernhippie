@@ -29,6 +29,14 @@ class Image < ActiveRecord::Base
     self.photo.url(photo_style.to_sym)
   end
   
+  
+  def data
+    _data = ""
+    _data = "#{exposure_time} @ #{f_number} " unless exposure_time.blank? || f_number.blank?
+    _data = "with #{focal_length} on #{camera_model}" unless focal_length.blank? || camera_model.blank?
+  end  
+    
+  
   private  
   def store_exif
     img_file = self.photo.queued_for_write[:original].path

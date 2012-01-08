@@ -1,7 +1,9 @@
 %tr.image
-  %td= image_tag(f.object.photo.url(:admin))
-  %td= f.input :photo, :as => :file, :label => false
   %td.bool= f.input :featured, :label => false  
+  %td.image= image_tag(f.object.photo.url(:admin))
+  %td= f.object.data
+  %td= f.input :photo, :as => :file, :label => false  
+  
   %td.remove
     = f.hidden_field(:_destroy)
     = link_to_function("Remove", "remove_fields(this)")

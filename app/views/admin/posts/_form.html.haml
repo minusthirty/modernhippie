@@ -22,10 +22,10 @@
   %h2 Gallery Images  
   %table#images
     %tr
-      %th
-      %th
       %th Feature
-      %th Details
+      %th Photo
+      %th Data
+      %th
       %th
     = f.simple_fields_for :images do |builder|
       = render 'image_fields', :f => builder
