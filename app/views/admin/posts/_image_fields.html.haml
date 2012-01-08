@@ -1,5 +1,6 @@
 %tr.image
-  %td.bool= f.input :featured, :label => false  
+  %td.bool
+    = f.input(:featured, :label => false) if f.object.orientation == 'horizontal'
   %td.image= image_tag(f.object.photo.url(:admin))
   %td= f.input :photo, :as => :file, :label => false  
   
