@@ -14,7 +14,7 @@ class Post < ActiveRecord::Base
   has_many :images, :dependent => :destroy, :order => 'created_at'
   
   accepts_nested_attributes_for :images, 
-    :reject_if => lambda { |p| :new_record? && p[:photo].blank? },
+    :reject_if => lambda {|i| i[:id].blank? && i[:photo].blank?},
     :allow_destroy => true
   
   validates_associated :images
