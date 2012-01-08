@@ -14,7 +14,7 @@ class Post < ActiveRecord::Base
   has_many :images, :dependent => :destroy, :order => 'created_at'
   
   accepts_nested_attributes_for :images, 
-    :reject_if => lambda { |p| p[:photo].blank? },
+    :reject_if => lambda { |p| :new_record? && p[:photo].blank? },
     :allow_destroy => true
   
   validates_associated :images
@@ -27,7 +27,7 @@ class Post < ActiveRecord::Base
     :content_type => ['image/jpeg', 'image/pjpeg'],
     :message => "has to be in jpeg format"
     
-  validates_attachment_size :cover_image, 
+  validates_attachment_size :cover_image,
     :less_than => 2.megabytes, 
     :unless => Proc.new {|m| m[:cover_image].nil?}
   

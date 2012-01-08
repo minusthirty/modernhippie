@@ -5,4 +5,4 @@
 // the compiled file.
 //
 //= require jquery
-//= require_tree ./application
+//= require_tree ./admin

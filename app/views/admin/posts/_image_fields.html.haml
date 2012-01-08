@@ -1,5 +1,7 @@
-%li.image{:class => f.object.orientation}
-  = image_tag(f.object.oriented_photo_url(:admin))
-  = f.input :photo, :as => :file, :label => false
-  = f.hidden_field(:_destroy)
-  = link_to_function("Remove", "remove_fields(this)")
+%tr.image
+  %td= image_tag(f.object.photo.url(:admin))
+  %td= f.input :photo, :as => :file, :label => false
+  %td.bool= f.input :featured, :label => false  
+  %td.remove
+    = f.hidden_field(:_destroy)
+    = link_to_function("Remove", "remove_fields(this)")

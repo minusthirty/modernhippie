@@ -7,23 +7,25 @@ class Image < ActiveRecord::Base
     :message => "has to be in jpeg format"
     
   validates_attachment_size :photo, 
-    :less_than => 2.megabytes, 
-    :unless => Proc.new {|m| m[:photo].nil?}
+    :less_than => 2.megabytes
   
   has_attached_file :photo,
-    {:styles => { :admin_vertical   => ["122x165#", :jpg],
-                  :admin_horizontal => ["250x165#", :jpg],
-                  :vertical         => ["245x330#", :jpg],
-                  :horizontal       => ["500x330#", :jpg]}
+    {:styles => { :admin      => ["60", :jpg],
+                  :vertical   => ["245x330#", :jpg],
+                  :horizontal => ["500x330#", :jpg],
+                  :wide       => ["755", :jpg]}
                   
     }.merge(PAPERCLIP_STORAGE_OPTIONS)
- after_photo_post_process :store_exif
+  after_photo_post_process :store_exif
   
   # return image url for orientation
   # limit to either landscape or portrait
-  def oriented_photo_url(prefix=nil)
-    photo_style = self.orientation == 'horizontal' ? 'horizontal' : 'vertical'
-    photo_style = "#{prefix.to_s}_#{photo_style}" if prefix
+  def oriented_photo_url
+    photo_style = if self.orientation == 'horizontal'
+      self.featured ? 'wide' : 'horizontal'
+    else
+      'vertical'
+    end
     self.photo.url(photo_style.to_sym)
   end
   

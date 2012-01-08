@@ -7,7 +7,6 @@ class Admin::PostsController < Admin::AdminController
   end
   
   def edit
-    3.times { @post.images.build } if @post.images.size < 3
   end
   
   def update
