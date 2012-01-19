@@ -30,6 +30,7 @@ GEM
       activesupport (= 3.1.3)
     activesupport (3.1.3)
       multi_json (~> 1.0)
+    acts_as_list (0.1.4)
     addressable (2.2.6)
     ansi (1.4.1)
     arel (2.2.1)
@@ -141,6 +142,7 @@ PLATFORMS
 
 DEPENDENCIES
   RedCloth
+  acts_as_list
   aws-s3
   exifr
   haml-rails

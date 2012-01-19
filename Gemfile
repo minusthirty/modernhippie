@@ -14,6 +14,7 @@ gem "haml-rails"
 gem "sass-rails"
 gem "simple_form"
 gem "RedCloth"
+gem "acts_as_list"
 
 # images
 gem "paperclip"

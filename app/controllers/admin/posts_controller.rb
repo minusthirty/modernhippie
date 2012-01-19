@@ -3,7 +3,7 @@ class Admin::PostsController < Admin::AdminController
   before_filter :load_resource, :only => [:edit, :update, :destroy]
   
   def index
-    @posts = Post.unscoped.order('updated_at desc')
+    @posts = Post.unscoped.order('created_at desc')
   end
   
   def edit
