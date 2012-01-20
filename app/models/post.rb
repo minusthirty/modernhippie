@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
 
   # only show published posts
   # use unscoped for admin index
-  default_scope where('published_at is not null')
+  default_scope where('published_at is not null').order("created_at desc")
   
   attr_accessor :delete_cover_image
   
@@ -39,12 +39,12 @@ class Post < ActiveRecord::Base
                   :large    => ["490x245#", :jpg]}
     }.merge(PAPERCLIP_STORAGE_OPTIONS)
   
-  def next
-    self.class.where("created_at > ?", created_at).first
+  def older_post
+    self.class.where("created_at < ?", created_at).first
   end
 
-  def prev
-    self.class.where("created_at < ?", created_at).first
+  def newer_post
+    self.class.where("created_at > ?", created_at).last
   end
   
   private

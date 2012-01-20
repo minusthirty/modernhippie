@@ -6,12 +6,11 @@
       %span Draft
     = post.title
 
-
   %td=post.category.try(:name)
   %td.number=post.images_count
   
-  %td.date="#{time_ago_in_words post.updated_at} ago"
-  %td.date="#{time_ago_in_words post.created_at} ago"  
+  %td.date= post.updated_at.to_s(:short)
+  %td.date= post.created_at.to_s(:short)
   
   %td= link_to 'Edit', [:edit, :admin, post]
   %td= link_to 'View', post

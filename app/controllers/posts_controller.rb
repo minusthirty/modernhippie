@@ -2,14 +2,14 @@ class PostsController < ApplicationController
   
   # home
   def index
-    @posts = Post.order('created_at desc')
+    @posts = Post.all
   end
   
   # post details
   def show
     @post = Post.find(params[:id], :include => :images)
-    @next_post = @post.next
-    @prev_post = @post.prev
+    @older_post = @post.older_post
+    @newer_post = @post.newer_post
   end
   
   def about
