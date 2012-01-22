@@ -4,6 +4,9 @@ class Post < ActiveRecord::Base
   # use unscoped for admin index
   default_scope where('published_at is not null').order("created_at desc")
   
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :history]
+  
   attr_accessor :delete_cover_image
   
   before_validation :update_cover_image
