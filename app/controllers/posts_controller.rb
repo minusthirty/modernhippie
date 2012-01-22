@@ -15,10 +15,9 @@ class PostsController < ApplicationController
     if request.path != post_path(@post)
       redirect_to @post, status: :moved_permanently
     end
-  end
-  
-  def about
-    @post = Post.find_by_title('about', :include => :images)
-    render 'posts/show'
+    
+  rescue ActiveRecord::RecordNotFound => e
+    Rails.logger.error "Unable to find Post with ID #{params[:id]}: #{e.inspect}"
+    redirect_to root_url
   end
 end
