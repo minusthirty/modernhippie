@@ -2,7 +2,7 @@
   %h1= @post.title
 
 %div.body
-  %p= raw @post.body_html
+  = raw @post.body_html
 
 %div.gallery
   - @post.images.each do |image|

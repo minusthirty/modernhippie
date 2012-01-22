@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 # hosting
 gem "aws-s3"
 gem "heroku"
+gem "taps"
 
 # base
 gem "rails", "3.1.3"
