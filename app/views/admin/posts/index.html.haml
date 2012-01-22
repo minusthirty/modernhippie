@@ -1,5 +1,14 @@
 = link_to '+ Post', [:new, :admin, :post], :class => 'add-button'
-%h1= pluralize(@posts.size, 'Post')
+
+- if @category
+  = link_to 'Back', admin_posts_url
+  %h1
+    = "#{pluralize(@posts.size, 'Post')} in"
+    %span.category= @category.name.titleize
+
+    
+- else
+  %h1= pluralize(@posts.size, 'Post')
 
 - unless @posts.empty?
   %table#posts

@@ -3,7 +3,12 @@ class Admin::PostsController < Admin::AdminController
   before_filter :load_resource, :only => [:edit, :update, :destroy]
   
   def index
-    @posts = Post.unscoped.order('created_at desc')
+    if params[:category_id]
+      @category = Category.find(params[:category_id])
+      @posts = Post.unscoped.where(:category_id => @category.id).order('created_at desc')
+    else
+      @posts = Post.unscoped.order('created_at desc')
+    end
   end
   
   def edit

@@ -6,7 +6,7 @@
       %span Draft
     = post.title
 
-  %td=post.category.try(:name)
+  %td= link_to post.category.try(:name), admin_category_posts_url(post.category.id)
   %td.number=post.images_count
   
   %td.date= post.updated_at.to_s(:short)
