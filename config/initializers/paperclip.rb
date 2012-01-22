@@ -6,5 +6,8 @@ if Rails.env.production? || Rails.env.staging?
                                                       :secret_access_key => ENV['S3_SECRET'] } 
                               }
 else
-  PAPERCLIP_STORAGE_OPTIONS = {}
+  PAPERCLIP_STORAGE_OPTIONS = {
+    :path => ':class/:attachment/:id/:style.:extension',
+    :url  => ':class/:attachment/:id/:style.:extension'
+  }
 end

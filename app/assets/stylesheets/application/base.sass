@@ -7,8 +7,6 @@ $border_color: #dadbd4
   border: none
 
 body
-  width: 765px
-  margin: 0 auto
   background-color: $background_color
   
 ul#posts
@@ -28,12 +26,21 @@ ul#posts
       top: 5px
       left: 5px
       width: 235px
-  
+      
+.container
+  width: 765px
+  margin: 0 auto
+      
 #header
   overflow: hidden
   border-bottom: 1px solid $border_color
-  padding: 40px
+  padding: 20px
   margin: 0 5px 40px 5px
+  position: fixed
+  width: 715px
+  z-index: 99999
+  background: rgba(255, 255, 255, 0.95)
+  
   img
     width: 174px
     margin: 0 auto
@@ -47,8 +54,14 @@ ul#posts
     li
       float: left
       margin: 0 10px
+
+
+.post_show
+  #content
+    padding-top: 150px
   
 #content
+  padding-top: 200px
   overflow: hidden
   .title
     float: left

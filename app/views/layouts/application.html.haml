@@ -9,16 +9,18 @@
     %meta(name="apple-mobile-web-app-capable" content="yes")
     %meta(name="apple-mobile-web-app-status-bar-style" content="black")
     
-  %body
-    #header
-      = link_to image_tag('logo.png'), '/'
-      %ul
-        - @categories.each do |c|
-          %li= link_to c.name, c
-    #content
-      = yield
-    #footer
-      %p
-        &copy;
-        ModernHippie
-        = Time.now.year
+  %body{:class => "post_#{action_name}"}
+    .container
+      #header
+        = link_to image_tag('logo.png'), '/'
+        - unless @post
+          %ul
+            - @categories.each do |c|
+              %li= link_to c.name, c
+      #content
+        = yield
+      #footer
+        %p
+          &copy;
+          ModernHippie
+          = Time.now.year
