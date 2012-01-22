@@ -1,5 +1,5 @@
 %ul#posts
   - @posts.each do |post|
-    %li.post
+    %li.post{:class => post.category.name}
       = link_to image_tag(post.cover_image.url(:large)), post
       %h3= link_to post.title, post

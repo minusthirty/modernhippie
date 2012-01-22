@@ -12,11 +12,13 @@
   %body{:class => "#{controller_name}_#{action_name}"}
     .container
       #header
-        = link_to image_tag('logo.png'), '/'
-        - unless @post
+        - if @post
+          = link_to image_tag('logo.png'), '/'
+        - else
+          = link_to image_tag('logo.png'), '#', {"data-filter" => "*", :class => 'filter'}
           %ul
             - @categories.each do |c|
-              %li= link_to c.name, c
+              %li= link_to c.name, '#', {"data-filter"=>".#{c.name}", :class => 'filter'}
       #content
         = yield
       #footer
