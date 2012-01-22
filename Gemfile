@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 # hosting
+gem "aws-sdk"
 gem "aws-s3"
 gem "heroku"
 
