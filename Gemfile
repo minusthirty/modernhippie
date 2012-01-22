@@ -30,11 +30,15 @@ group :assets do
   gem 'uglifier'
 end
 
-group :production do
-  gem 'thin'
+group :development do
+  gem "taps"
 end
 
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+end
+
+group :production do
+  gem 'thin'
 end
