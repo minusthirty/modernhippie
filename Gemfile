@@ -15,6 +15,7 @@ gem "sass-rails"
 gem "simple_form"
 gem "RedCloth"
 gem "acts_as_list"
+gem "friendly_id"
 
 # images
 gem "paperclip"
@@ -22,7 +23,6 @@ gem "exifr"
 
 # services
 gem 'newrelic_rpm'
-
 
 # Gems used only for assets and not required
 # in production environments by default.
