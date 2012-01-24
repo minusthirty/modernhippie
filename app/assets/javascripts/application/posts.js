@@ -11,6 +11,9 @@ $(function(){
   
   // filter items when filter link is clicked
   $('a.filter').click(function(){
+    $('a.filter').removeClass('selected');
+    $(this).addClass('selected');
+    
     var selector = $(this).attr('data-filter');
     $postList.isotope({ filter: selector });
     return false;

@@ -8,7 +8,3 @@
   - @post.images.each do |image|
     = image_tag image.oriented_photo_url
     
-- if @older_post || @newer_post
-  %div.nav
-    = link_to("This Way", @older_post, :class => 'older_post') if @older_post
-    = link_to("That Way", @newer_post, :class => 'newer_post') if @newer_post

@@ -40,11 +40,22 @@ ul#posts
   width: 715px
   z-index: 99999
   background: rgba(255, 255, 255, 0.95)
-  
-  img
-    width: 174px
-    margin: 0 auto
-    display: block
+  a
+    img.logo
+      width: 174px
+      margin: 0 auto
+      display: block
+    &.newer
+      position: absolute
+      top: 0px
+      left: 0px
+      padding: 50px 30px 40px 10px
+    &.older
+      position: absolute
+      top: 0px
+      right: 0px
+      padding: 50px 10px 40px 30px
+    
   ul
     list-style-type: none
     overflow: hidden
@@ -90,12 +101,23 @@ ul#posts
     overflow: hidden
     padding: 20px 0 0 0
     border-top: 1px solid $border_color
-
-
+    
 #footer
   border-top: 1px solid $border_color
-  padding: 20px 0
   margin: 20px 5px 0 5px
+  ul
+    border-bottom: 1px solid $border_color
+    list-style-type: none
+    overflow: hidden
+    text-align: center
+    padding: 20px 0
+    li
+      display: inline
+  p
+    padding: 20px 0
+    text-align: center
+    width: 100%
+  
   
 .image
   width: 220px

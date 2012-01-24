@@ -13,17 +13,29 @@
     .container
       #header
         - if @post
-          = link_to image_tag('logo.png'), '/'
+          = link_to(image_tag('next.png'), @older_post, :class => 'older') if @older_post
+          = link_to(image_tag('logo.png', :class => 'logo'), '/')
+          = link_to(image_tag('previous.png'), @newer_post, :class => 'newer') if @newer_post
         - else
-          = link_to image_tag('logo.png'), '#', {"data-filter" => "*", :class => 'filter'}
+          = link_to image_tag('logo.png', :class => 'logo'), '#', {"data-filter" => "*", :class => 'filter'}
           %ul
             - @categories.each do |c|
               %li= link_to c.name, '#', {"data-filter"=>".#{c.name}", :class => 'filter'}
       #content
         = yield
       #footer
+        - if @post
+          %ul.share
+            %li= link_to image_tag('twitter.png'), twitter_url_for(@post), :target => '_blank'
+            %li= link_to image_tag('fb.png'), facebook_url_for(@post), :target => '_blank'
+            %li= link_to image_tag('pinit.png'), pinterest_url_for(@post), :target => '_blank'
+            %li
+
         %p
           &copy;
-          ModernHippie
           = Time.now.year
+          ModernHippie
     = render 'layouts/ga'
+    
+    
+    

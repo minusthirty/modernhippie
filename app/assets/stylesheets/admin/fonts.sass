@@ -3,19 +3,6 @@ $nav_font_color_over: #888
 $title_font_color: #b7b8b2
 $body_font_color: #90918c
 
-@font-face
-  font-family: 'InterstatePlus'
-  src: font-url('interstateplus-lightcond-webfont.eot')
-  src: font-url('interstateplus-lightcond-webfont.eot?#iefix') format("embedded-opentype"), font-url('/fonts/interstateplus-lightcond-webfont.woff') format("woff"), font-url('interstateplus-lightcond-webfont.ttf') format("truetype"), font-url('interstateplus-lightcond-webfont.svg#InterstatePlusLightCondRg') format("svg")
-  font-weight: normal
-  font-style: normal
-  
-@font-face
-  font-family: 'ArvilRegular'
-  src: font-url('arvil_sans-webfont.eot')
-  src: font-url('arvil_sans-webfont.eot?#iefix') format("embedded-opentype"), font-url('arvil_sans-webfont.woff') format("woff"), font-url('arvil_sans-webfont.ttf') format("truetype"), font-url('arvil_sans-webfont.svg#ArvilRegular') format("svg")
-  font-weight: normal
-  font-style: normal
  
 h1,h2,h3,h4,h5
   text-transform: uppercase
@@ -26,8 +13,7 @@ a
   text-transform: uppercase
   text-decoration: none
   color: $nav_font_color
-  &:hover,
-  &.selected
+  &:hover
     color: $nav_font_color_over
     
 .body
@@ -43,8 +29,8 @@ a
   
 ul#posts
   font-family: ArvilRegular
-  font-size: 45px
-  line-height: 45px
+  font-size: 50px
+  line-height: 55px
   color: white
   a
     word-wrap: break-word
@@ -70,7 +56,15 @@ ul#posts
       font-family: ArvilRegular
       font-size: 50px
       line-height: 40px
-
+      &.older_post
+        float: right
+        padding-right: 20px
+        background: transparent image-url('arrow-next.png') center right no-repeat
+        
+      &.newer_post
+        float: left
+        padding-left: 20px
+        background: transparent image-url('arrow-previous.png') center left no-repeat
     
 #footer
   p

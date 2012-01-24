@@ -50,6 +50,10 @@ class Post < ActiveRecord::Base
     self.class.where("created_at > ?", created_at).last
   end
   
+  def twitter_share_url
+    '/'
+  end
+  
   private
     def update_body_html
       self.body_html = RedCloth.new(self.body).to_html
