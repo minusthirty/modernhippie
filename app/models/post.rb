@@ -50,8 +50,8 @@ class Post < ActiveRecord::Base
     self.class.where("created_at > ?", created_at).last
   end
   
-  def twitter_share_url
-    '/'
+  def summary
+    @summary ||= self.body.split(/\r\n/).first
   end
   
   private
