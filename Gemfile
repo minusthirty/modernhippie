@@ -13,6 +13,7 @@ gem "pg", "0.11.0"
 # views
 gem "haml-rails"
 gem "sass-rails"
+gem "coffee-rails"
 gem "simple_form"
 gem "RedCloth"
 gem "acts_as_list"

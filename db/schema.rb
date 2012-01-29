@@ -70,13 +70,4 @@ ActiveRecord::Schema.define(:version => 20120122030931) do
 
   add_index "posts", ["slug"], :name => "index_posts_on_slug"
 
-  create_table "users", :force => true do |t|
-    t.string  "name"
-    t.string  "email"
-    t.string  "dropbox_token"
-    t.string  "dropbox_secret"
-    t.boolean "draft",          :default => true
-    t.integer "images_count",   :default => 0
-  end
-
 end
