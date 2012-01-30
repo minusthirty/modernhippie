@@ -8,16 +8,20 @@
     %meta(name="viewport" content="width=775, user-scalable=no")
     %meta(name="apple-mobile-web-app-capable" content="yes")
     %meta(name="apple-mobile-web-app-status-bar-style" content="black")
-
-    %meta(property="og:type" content="website")
-    %meta(property="og:url" content=root_url)
+    
     %meta(property="og:site_name" content="ModernHippie.me")
+    %meta(property="og:type" content="website")
     - if @post
-      %meta(property="og:title" content="#{@post.title}")
+      %meta(property="og:title" content="#{@post.title} by ModernHippie.me")
       %meta(property="og:description" content="#{@post.summary}")
       %meta(property="og:image" content="#{@post.cover_image(:large)}")
+      %meta(property="og:url" content="#{post_url(@post)}")
     - else
+      %meta(property="og:title" content="Modern Hippie")
+      %meta(property="og:description" content="Photo journal by ModernHippie.me")
       %meta(property="og:image" content="#{root_url.chomp('/')}#{asset_path('logo.png')}")
+      %meta(property="og:url" content=root_url)
+
 
   %body{:class => "#{controller_name}_#{action_name}"}
     .container
@@ -30,7 +34,7 @@
           = link_to image_tag('logo.png', :class => 'logo'), '#', {"data-filter" => "*", :class => 'filter'}
           %ul
             - @categories.each do |c|
-              %li= link_to c.name, '#', {"data-filter"=>".#{c.name}", :class => 'filter'}
+              %li.nav= link_to c.name, '#', {"data-filter"=>".#{c.name}", :class => 'filter'}
       #content
         = yield
       #footer

@@ -2,6 +2,7 @@ $nav_font_color: #abaca6
 $nav_font_color_over: #888
 $title_font_color: #b7b8b2
 $body_font_color: #90918c
+$body_link_color: #666
 
 @font-face
   font-family: 'InterstatePlus'
@@ -21,15 +22,27 @@ h1,h2,h3,h4,h5
   text-transform: uppercase
   font-weight: normal
   font-style: normal
-  
+
+
 a
-  text-transform: uppercase
   text-decoration: none
-  color: $nav_font_color
-  &:hover,
-  &.selected
-    color: $nav_font_color_over
+ 
+li.nav,
+li.post
+  a
+    text-transform: uppercase
+    color: $nav_font_color
+    &:hover,
+    &.selected
+      color: $nav_font_color_over
     
+
+#content
+  a
+    color: $body_link_color
+    &:hover
+      color: $nav_font_color_over
+
 .body
   font-family: Times
   font-size: 16px
@@ -41,17 +54,7 @@ a
       padding: 2px
   
   
-ul#posts
-  font-family: ArvilRegular
-  font-size: 45px
-  line-height: 45px
-  color: white
-  a
-    word-wrap: break-word
-    color: white
-    &:hover
-      color: white
-    
+
 #header
   font-family: InterstatePlus
   color: $nav_font_color
