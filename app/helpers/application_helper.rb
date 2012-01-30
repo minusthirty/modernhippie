@@ -13,7 +13,7 @@ module ApplicationHelper
     url = "http://pinterest.com/pin/create/button/"
     url << "?url=#{post_url(post)}"
     url << "&media=#{post.cover_image.url(:large)}"
-    url << "&description=#{post.summary}"
+    url << "&description=#{post.title.titleize} by ModernHippie.me"
     url
   end
   
@@ -22,9 +22,9 @@ module ApplicationHelper
   end
   
   def twitter_url_for(post)
-    url = "https://twitter.com/intent/tweet"
-    url = "?source=webclient"
-    url << "&text=#{post.title} #{CGI.escape(post_url(post))} ##{post.category.name}"
+    text = CGI.escape("Yay! A new #{post.category.name.titleize} post by ModernHippie.me, #{post.title}: #{post_url(post)}")
+    url = "https://twitter.com/intent/tweet?source=webclient"
+    url << "&text=#{text}"
     url
   end
 end
