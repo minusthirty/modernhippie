@@ -24,7 +24,7 @@ class Post < ActiveRecord::Base
   
   validates :category,  :presence => true
   validates :title,     :presence => true, :length => { :within => 3..40 }, :uniqueness => true
-  validates :body,      :presence => true, :length => { :within => 1..2000 }
+  validates :body,      :presence => true
   
   validates_attachment_content_type :cover_image,
     :content_type => ['image/jpeg', 'image/pjpeg'],
