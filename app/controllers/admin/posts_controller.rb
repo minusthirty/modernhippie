@@ -15,6 +15,8 @@ class Admin::PostsController < Admin::AdminController
   end
   
   def update
+    expire_action(:controller => :posts, :action => :show, :id => @post.id)
+    
     if @post.update_attributes(params[:post])
       redirect_to [:admin, :posts], :notice => "Updated post"
     else
@@ -29,8 +31,9 @@ class Admin::PostsController < Admin::AdminController
   end
   
   def create
+    expire_action(:controller => :posts, :action => :index)
+    
     @post = Post.create(params[:post])
-
     if @post.valid?
       redirect_to [:admin, :posts], :notice => "Created new post"
     else
@@ -40,6 +43,9 @@ class Admin::PostsController < Admin::AdminController
   end
   
   def destroy
+    expire_action(:controller => :posts, :action => :show, :id => @post.id)
+    expire_action(:controller => :posts, :action => :index)
+    
     message = "Deleted #{@post.title} post"
     @post.destroy
     redirect_to [:admin, :posts], :notice => message

@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
   
+  caches_action :index
+  caches_action :show
+  
   # home
   def index
     @posts = Post.all
