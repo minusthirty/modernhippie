@@ -5,9 +5,9 @@ class Admin::PostsController < Admin::AdminController
   def index
     if params[:category_id]
       @category = Category.find(params[:category_id])
-      @posts = Post.unscoped.where(:category_id => @category.id).order('published_at desc')
+      @posts = Post.unscoped.where(:category_id => @category.id).order('created_at desc')
     else
-      @posts = Post.unscoped.order('published_at desc')
+      @posts = Post.unscoped.order('created_at desc')
     end
   end
   

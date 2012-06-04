@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
 
   # only show published posts
   # use unscoped for admin index
-  default_scope where('published_at is not null').order("created_at desc")
+  default_scope where('published_at is not null').order("published_at desc")
   
   extend FriendlyId
   friendly_id :title, use: [:slugged, :history]
