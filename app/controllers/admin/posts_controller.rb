@@ -15,7 +15,7 @@ class Admin::PostsController < Admin::AdminController
   end
   
   def update
-    expire_action(:controller => :posts, :action => :show, :id => @post.id)
+    expire_cache(@post.id)
     
     if @post.update_attributes(params[:post])
       redirect_to [:admin, :posts], :notice => "Updated post"
@@ -31,7 +31,7 @@ class Admin::PostsController < Admin::AdminController
   end
   
   def create
-    expire_action(:controller => :posts, :action => :index)
+    expire_cache
     
     @post = Post.create(params[:post])
     if @post.valid?
@@ -43,8 +43,7 @@ class Admin::PostsController < Admin::AdminController
   end
   
   def destroy
-    expire_action(:controller => :posts, :action => :show, :id => @post.id)
-    expire_action(:controller => :posts, :action => :index)
+    expire_cache(@post.id)
     
     message = "Deleted #{@post.title} post"
     @post.destroy
@@ -52,6 +51,11 @@ class Admin::PostsController < Admin::AdminController
   end
   
   private
+  def expire_cache(post_id=nil)
+    expire_action(:controller => :posts, :action => :index)
+    expire_action(:controller => :posts, :action => :show, :id => post_id) if post_id
+  end
+  
   def load_resource
     @post = Post.unscoped.find(params[:id])
   end

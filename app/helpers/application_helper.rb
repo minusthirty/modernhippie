@@ -8,7 +8,6 @@ module ApplicationHelper
     link_to_function(name, "ImageField.add('#{association}', '#{escape_javascript(fields)}')")
   end
   
-  
   def pinterest_url_for(post)
     url = "http://pinterest.com/pin/create/button/"
     url << "?url=#{post_url(post)}"
